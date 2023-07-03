@@ -1,4 +1,4 @@
-window.addEventListener("keydown", (e) => {
+function playSound(e) {
   const audio = document.querySelector(`audio[data-key="${e.key}"]`);
   const key = document.querySelector(`.key[data-key="${e.key}"]`);
   if (!audio) {
@@ -7,7 +7,7 @@ window.addEventListener("keydown", (e) => {
   audio.currentTime = 0;
   audio.play();
   key.classList.add("playing");
-});
+}
 
 const keys = document.querySelectorAll(".key");
 keys.forEach((key) =>
@@ -19,3 +19,5 @@ keys.forEach((key) =>
     key.classList.remove("playing");
   })
 );
+
+window.addEventListener("keydown", playSound);
